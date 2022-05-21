@@ -58,6 +58,8 @@ jobs:
           path: ./laravel/vendor
           key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
           restore-keys: ${{ runner.os }}-composer-
+      - name: ls
+        run: ls
       - name: Composer Install
         if: steps.cache.outputs.cache-hit != 'true'
         run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
